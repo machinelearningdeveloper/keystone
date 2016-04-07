@@ -16,7 +16,7 @@ from scipy.signal import convolve
 
 def main():
   x = imread(sys.argv[1])
-  k1 = np.array([i for i in range(27)]).reshape((3,3,3))
+  k1 = np.array(list(range(27))).reshape((3,3,3))
   out = np.sum(convolve(x, k1, mode='valid'), 2)
   imsave(sys.argv[2], out)
   cwriter = csv.writer(open(sys.argv[3], 'w'))
